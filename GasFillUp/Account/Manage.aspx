@@ -205,7 +205,7 @@
     </p>
                 
                 <asp:Button ID="BtnDeactivateUser" runat="server" CssClass="btn btn-danger" 
-                     Text="Deactivate Account" />
+                     Text="Deactivate Account" OnClick="BtnDeactivateUser_Click" />
             </section>
 
 

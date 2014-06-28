@@ -66,6 +66,13 @@ namespace GasFillUp
                 ddl_SelectVehicle.DataValueField = "VehicleId";
                 ddl_SelectVehicle.DataBind();
                 ddl_SelectVehicle.Items.Insert(0, new ListItem("Choose Vehicle"));
+
+                if (ddl_SelectVehicle.Items.Count <2)
+                {
+
+                    Response.Redirect("Account\\Manage.aspx");
+                }
+                
                 
                 conn.Dispose();
                 adp.Dispose();

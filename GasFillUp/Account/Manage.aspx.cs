@@ -345,5 +345,26 @@ namespace GasFillUp.Account
 
         }
 
+        protected void BtnDeactivateUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["GasFillUpConn"].ConnectionString);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("usp_DeleteVehicleInfo;", conn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add(new MySqlParameter("v_UserName", User.Identity.Name));
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                conn.Dispose();
+                Response.Redirect("Dashboard.aspx");
+            }
+            catch
+            {
+
+            }
+        }
+
     }
 }
